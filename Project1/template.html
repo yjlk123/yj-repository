@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+
+	<script>
+    $(document).ready(function(){
+    $("p").click(function(){
+    $(this).hide();
+  });
+});
+</script>
+<script>
+    if(typeof jQuery == 'undefined'){
+    window.alert("没有jquery");
+}
+</script>
+
+</head>
+
+
+<body>
+	<button class="btn btn-success">hi</button>
+    <p>点击我，我会消失。</p>
+    <p>也要点击我哦。</p>
+
+
+    <div class="row">
+    <div class="col-md-8">.col-md-8</div>
+    <div class="col-md-4">.col-md-4</div>
+    </div>
+
+
+</body>
+</html>
+
+
+
+

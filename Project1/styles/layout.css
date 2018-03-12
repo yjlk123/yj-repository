@@ -1,0 +1,158 @@
+/*
+* @Author: yj
+* @Date:   2018-02-11 21:57:14
+* @Last Modified by:   yj
+* @Last Modified time: 2018-03-11 23:59:23
+*/
+
+/**
+通用的布局样式
+*/
+
+
+*{/*使用通配符将所有元素的内外边距设置为0，都由自己设置*/
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	padding-left: 30px;
+	padding-right: 30px;
+	height: 3000px;/*设置页面的高度即设置body的高度*/
+}
+
+.fixeddiv{
+	width: 100%;
+	position: fixed;/*要设置导航栏固定在顶部，必须要先设置该div的宽度为100%,否则会变短.
+	                  fixed介于body元素之上，不属于文档流，所以会挡住其他元素*/
+	z-index: 100;
+}
+
+header, nav{
+	padding: 0px;
+	margin-top: -10px;
+	margin-left: -30px;
+	margin-right: -30px;
+}
+
+nav ul{
+	/*overflow: visible;*//*这句会出现导航栏无法定格的情况*/
+	list-style-type: none;
+	padding-left: 0px;/*解决li不靠边的问题*/
+}
+
+/*实现列表横向排列并且平均分宽度，且根据窗口大小而平均分*/
+nav li{
+	float: left;
+	/*display: inline;*/
+	width: 20%;
+	height: 80px;
+	text-align: center;/*水平居中*/
+	/*vertical-align: middle;*//*用这个实现垂直居中，不对*/
+	position: relative;
+	display: table;
+}
+
+nav a:link,nav a:visited{
+	display: block;/*只能放在这个伪类里，单独放a里不生效*/
+	width: 100%;/*将a的display设置为block之后可以设置宽度和高度了*/
+	height: 100%;
+	display: table-cell;/*这3句实现居中，用表格的方式实现，只有这一种方法正确了*/
+	text-align: center;
+	vertical-align: middle;
+}
+
+section, article{
+	display: block;
+}
+
+article {
+	padding-top: 80px;
+}
+
+.recommendtrenddis{/*div的宽度都固定为父元素的25%，高度随图片的高度变。
+	注意必须先设置父元素的宽度，才能在子元素里使用百分比*/
+	display: inline;
+	float: left;
+	width: 25%;
+	height: auto;
+	padding-left: 35px;
+	padding-bottom: 40px;
+}
+
+.disbroad{
+	width: 100%;
+	height: 900px;
+	margin-top: 130px;
+	margin-right: 5px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 3px;
+}
+
+.disbroad img{/*div的宽度都固定为父元素的25%，高度随图片的高度变。图片按比例放入div中*/
+	max-width: 100%;
+	max-height: 100%;
+}
+
+nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
+	color: #1ef;
+	background-color:#299;
+}
+
+
+/**
+recommend.html布局样式
+*/
+/*
+#main{
+	width: 100%;
+	height: 800px;
+	position: relative;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 3px;
+}
+
+.pic{
+	width: 100%;
+	height: auto;
+
+}
+
+.box{
+	width: 25%;
+	height: auto;
+	float: left;
+	margin-top: 50px;
+	margin-right: 5px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 3px;
+}
+
+.pic img{
+	width: 100%;
+	height: auto;
+}*/
+
+#main{
+    /*定位*/
+    position: relative;
+    border:5px solid #000;
+
+}
+.box{
+    /*内边距*/
+    padding:15px 0 0 15px ;
+    float: left;
+    border:1px solid #000;
+
+}
+.pic{
+    /*边框*/
+    border:1px solid #000;
+}
+.pic img{
+    width: 265px;
+}

@@ -1,0 +1,68 @@
+/*
+* @Author: yj
+* @Date:   2018-02-11 21:57:57
+* @Last Modified by:   yj
+* @Last Modified time: 2018-03-07 11:49:59
+*/
+
+body{
+	color: #534;/*color是字体的颜色*/
+	background-color: #eee;/*background-color是背景颜色*/
+	/*background-image: url('../images/3.jpg');*/
+	background-repeat: no-repeat;
+	background-position: 0px 50px;
+}
+
+header nav li{
+	background-color: #222;/*导航条里真正显示颜色的是li*/
+}
+
+a:link{
+	color: #345;
+	background-color: #eb6;
+}
+
+
+a:hover{
+	color: #667;
+	background-color: #fb5;
+}
+
+
+nav a:link,nav a:visited{
+	color: #eef;
+	background-color: transparent;/*透明*/
+	font-size: 20px;
+}
+
+header nav a:hover{
+	color: #667;
+	background-color: #3b5;/*导航栏悬停时变色*/
+}
+
+article nav li{
+	background-color:  #FFFFFF ;/*导航条里真正显示颜色的是li*/
+}
+
+article nav a:link,article nav a:visited{
+	color: #000000;/*覆盖上面的nav a 的颜色设置*/
+}
+
+article nav a:hover{
+	color: #000000;
+	background-color: #3b5;/*导航栏悬停时变色*/
+}
+
+/*
+#recommendtagdis{
+	border-style: solid;
+	border-color: #000000;
+	border-width: 3px;
+
+}*/
+
+.recommendtrenddis{
+	border-style: solid;
+	border-color: #000000;
+	border-width: 3px;
+}
