@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-03-14 18:30:47
+* @Last Modified time: 2018-03-14 22:12:46
 */
 /**
 recommend.thml对应的js文件
@@ -22,6 +22,7 @@ function createBox() {
     //window.onscroll = function ()//断点调试时进不去这个函数，因为这个函数是对翻滚页面的反应，而调试时并没有翻滚页面
     //{
     	//alert("1");
+    	/*
         //判断是否加载
         if (checkWillLoad())
         {
@@ -49,7 +50,7 @@ function createBox() {
             }
             //把刚创建的盒子瀑布流布局
             waterFall('main','box');
-        }
+        }*/
     //}
 }
 
@@ -70,9 +71,11 @@ function  waterFall(parent,box) {
     var cols = Math.floor( screenWidtn/boxWidth);
     //父标签居中
     //先求出父标签宽度
-    $(parent).style.width = boxWidth * cols + 'px';
+    var parentWith = boxWidth * cols +150;
+    $(parent).style.width = parentWith + 'px';//设置父元素的宽度为屏幕宽度而不用boxWidth * cols原因是
+											    //后者放不下4个box,会导致换行
     //居中
-    $(parent).style.margin = '50 auto';
+    //$(parent).style.margin = '10 auto';
     
     //子盒子定位
     //创建一个高度数组,存所有的高度
@@ -94,12 +97,17 @@ function  waterFall(parent,box) {
             var minBoxHeight = Math.min.apply(this,heightArr);
             //求出最矮盒子对应的索引
             var minBoxIndex = getMinBoxIndex(minBoxHeight,heightArr);
+            //alert(minBoxIndex);
             //盒子瀑布流定位  顶部间距就是最矮盒子的高度
             allBox[i].style.position = 'absolute';
+            minBoxHeight += 30;
             allBox[i].style.top = minBoxHeight + 'px';
-            allBox[i].style.left = minBoxIndex * boxWidth +'px';
+            var allBoxLeft = minBoxIndex * boxWidth + minBoxIndex * 30;  //注意和.box的margin-left属性同步修改       	  
+            allBox[i].style.left = allBoxLeft +'px';
             //关键:更新数组最矮高度,使下一个图片在高度数组中总是找最矮高度的图片下面拼接
+            boxHeight += 30;
             heightArr[minBoxIndex] += boxHeight;
+            //alert(heightArr[minBoxIndex]);
         }
     }
 }
