@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-03-11 23:59:23
+* @Last Modified time: 2018-03-14 15:31:18
 */
 
 /**
@@ -140,19 +140,27 @@ recommend.html布局样式
     /*定位*/
     position: relative;
     border:5px solid #000;
-
+    margin-top: 150px;
 }
 .box{
     /*内边距*/
-    padding:15px 0 0 15px ;
+    padding:15px 15px 15px 15px ;
     float: left;
-    border:1px solid #000;
-
+    width: 280px;
+    margin-bottom: 120px;
+	background-color: #FFFFFF;/*导航条里真正显示颜色的是li*/    
+	box-shadow: darkgrey 0px 2px 2px 2px;
+	overflow:auto;
 }
 .pic{
     /*边框*/
-    border:1px solid #000;
+    /*border:1px solid #000;*/
+	height: auto;
+
 }
+
 .pic img{
-    width: 265px;
+    width: 270px;
+	max-width: 100%;
+	max-height: 100%;
 }

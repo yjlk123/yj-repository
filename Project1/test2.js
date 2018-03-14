@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-03-14 18:30:47
+* @Last Modified time: 2018-03-14 10:11:28
 */
 /**
 recommend.thml对应的js文件
@@ -23,29 +23,26 @@ function createBox() {
     //{
     	//alert("1");
         //判断是否加载
+        console.log("123");
         if (checkWillLoad())
         {
             //创造假数据
-            var data = {'dataImg':[{'img':'3.jpg'},{'img':'2.jpg'},{'img':'5.jpg'},{'img':'5.jpg'},{'img':'6.jpg'},{'img':'3.jpg'}]};
+            var data = {'dataImg':[{'img':'2.jpg'},{'img':'3.jpg'},{'img':'5.jpg'},{'img':'5.jpg'},{'img':'6.jpg'},{'img':'3.jpg'}]};
             //加载数据，先把盒子全建好顺序添加，添完全部的之后再计算布局
             for(var i=0; i<data.dataImg.length; i++)
             {
                 //创建最外面的盒子
                 var newBox = document.createElement('div');
-                newBox.className = 'box img-rounded';
+                newBox.className = 'box';
                 $('main').appendChild(newBox);
-                //alert(newBox.offsetHeight);///////////////问题：一直是30
                 //创建单个盒子
                 var newPic = document.createElement('div');
                 newPic.className = 'pic';
                 newBox.appendChild(newPic);
-                //alert(newBox.offsetHeight);///////////////问题：一直是32
                 //创建img
                 var newImg = document.createElement('img');
                 newImg.src = 'images/' + data.dataImg[i].img;
                 newPic.appendChild(newImg);
-                //var boxHeights = newBox.offsetHeight;///////////////问题：一直是52
-                //alert(boxHeights);
             }
             //把刚创建的盒子瀑布流布局
             waterFall('main','box');
@@ -54,8 +51,8 @@ function createBox() {
 }
 
 //网页加载后调用函数
-addLoadEvent(createBox);
-
+//addLoadEvent(createBox);
+createBox();
 //实现瀑布流布局
 //规则:从第二行开始的图片,总是拼接在上一行高度最矮的图片后面
 function  waterFall(parent,box) {
@@ -72,7 +69,7 @@ function  waterFall(parent,box) {
     //先求出父标签宽度
     $(parent).style.width = boxWidth * cols + 'px';
     //居中
-    $(parent).style.margin = '50 auto';
+    $(parent).style.margin = '0 auto';
     
     //子盒子定位
     //创建一个高度数组,存所有的高度
@@ -81,7 +78,7 @@ function  waterFall(parent,box) {
     for(var i = 0; i < allBox.length ;i++)
     {
         //求出每个盒子的高度
-        var boxHeight = allBox[i].offsetHeight;///////////////问题：一直是52
+        var boxHeight = allBox[i].offsetHeight;
         //第一行的盒子不需要重新定位//每一行的盒子数与列数相同
         if(i<cols)
         {
