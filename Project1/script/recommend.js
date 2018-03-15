@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-03-15 09:30:36
+* @Last Modified time: 2018-03-15 11:13:43
 */
 /**
 recommend.thml对应的js文件
@@ -10,9 +10,11 @@ recommend.thml对应的js文件
 
 function $(id) {
     //判断id的类型
-    return typeof id === 'string'?document.getElementById(id):id;////////////////////////////////
+    return typeof id === 'string'?document.getElementById(id):id;
 }
 
+
+/*///////////////////问题，动态加载的方式在窗口小时没反应*/
 //当网页加载完毕
 function createBox() {
     //瀑布流布局 保证传的参数能够找到父盒子
@@ -26,8 +28,13 @@ function createBox() {
         //判断是否加载
         if (checkWillLoad())
         {
-            //创造假数据
-            var data = {'dataImg':[{'img':'3.jpg'},{'img':'2.jpg'},{'img':'5.jpg'},{'img':'5.jpg'},{'img':'6.jpg'},{'img':'3.jpg'}]};
+            //创造假数据,后期实现了后台数据库再从数据库获取真实数据
+            var data = {'dataImg':[{ 'usernamer':'Food tester','usericons':'99.jpg','img':'3.jpg','content':'舌尖上的美食舞蹈，你值得拥有'},
+            { 'usernamer':'Food tester','usericons':'98.jpg','img':'4.jpg','content':'来个甜点，轻松好心情'},
+            { 'usernamer':'Food tester','usericons':'97.jpg','img':'1.jpg','content':'帅啊'},
+            { 'usernamer':'Food tester','usericons':'96.jpg','img':'5.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
+            { 'usernamer':'Food tester','usericons':'95.jpg','img':'6.jpg','content':'午后与puppy'},
+            { 'usernamer':'Food tester','usericons':'94.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
             //加载数据，先把盒子全建好顺序添加，添完全部的之后再计算布局
             for(var i=0; i<data.dataImg.length; i++)
             {
@@ -35,19 +42,47 @@ function createBox() {
                 var newBox = document.createElement('div');
                 newBox.className = 'box img-rounded';
                 $('main').appendChild(newBox);
-                //alert(newBox.offsetHeight);///////////////问题：一直是30
-                //创建单个盒子
+
+                //创建用户信息的盒子
+                var newUser = document.createElement('div');
+                newUser.className = 'user';
+                newBox.appendChild(newUser);//不能用$('box'),只能用newBox变量，因为是动态生成的类
+                //创建用户信息里的图标盒子
+                var newUserIcons = document.createElement('img');
+                newUserIcons.className = 'usericon';
+                newUserIcons.src = 'images/' + data.dataImg[i].usericons;
+                newUser.appendChild(newUserIcons);
+                //创建用户信息里的用户名盒子
+                var newUserName = document.createElement('span');
+                newUserName.innerHTML = data.dataImg[i].usernamer;//不能用.text,无效
+                newUser.appendChild(newUserName);
+                //创建用户信息里的按钮
+                var newUserButton = document.createElement('button');
+                newUserButton.className = "btn btn-default concern";
+                newUserButton.innerHTML = '关注 +';
+                newUser.appendChild(newUserButton);
+
+                //创建图片的盒子
                 var newPic = document.createElement('div');
                 newPic.className = 'pic';
                 newBox.appendChild(newPic);
-                //alert(newBox.offsetHeight);///////////////问题：一直是32
                 //创建img
                 var newImg = document.createElement('img');
                 newImg.src = 'images/' + data.dataImg[i].img;
                 newPic.appendChild(newImg);
+
+                //创建显示文字的盒子
+                var newArticleText = document.createElement('div');
+                newArticleText.className = 'articletext';
+                newBox.appendChild(newArticleText);
+                //创建用户信息里的按钮
+                var newTextDis = document.createElement('p');
+                newTextDis.className = "textdis";
+                newTextDis.innerHTML = data.dataImg[i].content;
+                newArticleText.appendChild(newTextDis);
+
                 //var boxHeights = newBox.offsetHeight;///////////////问题：一直是52,原因是图片加载较缓慢，
                                                         //若在firefox就可以实现。解决办法：调用布局函数前先加个延时1秒
-                //alert(boxHeights);
             }
             //把刚创建的盒子瀑布流布局
             //加延时的原因：为了解决获取动态加载图片的高度老是不成功的问题，浏览器原因，FireFox并没有问题
@@ -102,12 +137,12 @@ function  waterFall(parent,box) {
             //alert(minBoxIndex);
             //盒子瀑布流定位  顶部间距就是最矮盒子的高度
             allBox[i].style.position = 'absolute';
-            minBoxHeight += 30;
+            minBoxHeight += 20;
             allBox[i].style.top = minBoxHeight + 'px';
-            var allBoxLeft = minBoxIndex * boxWidth + minBoxIndex * 30;  //注意和.box的margin-left属性同步修改       	  
+            var allBoxLeft = minBoxIndex * boxWidth + minBoxIndex * 20;  //注意和.box的margin-left属性同步修改       	  
             allBox[i].style.left = allBoxLeft +'px';
             //关键:更新数组最矮高度,使下一个图片在高度数组中总是找最矮高度的图片下面拼接
-            boxHeight += 30;
+            boxHeight += 20;
             heightArr[minBoxIndex] += boxHeight;
             //alert(heightArr[minBoxIndex]);
         }
