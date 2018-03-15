@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-03-14 22:12:46
+* @Last Modified time: 2018-03-15 09:30:36
 */
 /**
 recommend.thml对应的js文件
@@ -22,7 +22,7 @@ function createBox() {
     //window.onscroll = function ()//断点调试时进不去这个函数，因为这个函数是对翻滚页面的反应，而调试时并没有翻滚页面
     //{
     	//alert("1");
-    	/*
+    	
         //判断是否加载
         if (checkWillLoad())
         {
@@ -45,12 +45,14 @@ function createBox() {
                 var newImg = document.createElement('img');
                 newImg.src = 'images/' + data.dataImg[i].img;
                 newPic.appendChild(newImg);
-                //var boxHeights = newBox.offsetHeight;///////////////问题：一直是52
+                //var boxHeights = newBox.offsetHeight;///////////////问题：一直是52,原因是图片加载较缓慢，
+                                                        //若在firefox就可以实现。解决办法：调用布局函数前先加个延时1秒
                 //alert(boxHeights);
             }
             //把刚创建的盒子瀑布流布局
-            waterFall('main','box');
-        }*/
+            //加延时的原因：为了解决获取动态加载图片的高度老是不成功的问题，浏览器原因，FireFox并没有问题
+            setTimeout("waterFall('main','box')",1000);            
+        }
     //}
 }
 
