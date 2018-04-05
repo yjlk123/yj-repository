@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-03-25 10:03:26
+* @Last Modified time: 2018-04-05 16:11:47
 */
 
 /**
@@ -85,9 +85,7 @@ article {
 	height: 900px;
 	margin-top: 50px;
 	margin-right: 5px;
-	border-style: solid;
-	border-color: #000000;
-	border-width: 3px;
+	/*border:5px solid #000;*/
 }
 
 .disbroad img{/*div的宽度都固定为父元素的25%，高度随图片的高度变。图片按比例放入div中*/
@@ -104,7 +102,7 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 #main{
     /*定位*/
     position: relative;
-    border:5px solid #000;
+    /*border:5px solid #000;*/
     margin-top: 120px;
     margin-right: auto;/*这两句实现居中*/
     margin-left: auto;
@@ -165,11 +163,9 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 
 /*index.html的样式*/
 
-.firstpagedis{
-	border-style: solid;
-	border-color: #000000;
-	border-width: 3px;	
-/*	height: 20px;*/
+#firstpagedis{
+	/*border:5px solid #000;*/
+	/*	height: 20px;*/
     padding-bottom: 80px;
 }
 
@@ -196,14 +192,13 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 
 .textpic{
 	width: auto;
-}
-
-.textpic{
+	cursor:pointer;/*鼠标悬浮时变成手的形状*/
 	width: 40%;
 	height: auto;
 	display: inline;
 	float: left;
 	margin-right: 20px;
+
 }
 
 .textarea{
@@ -214,6 +209,9 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 
 .firstpagedisarea{
 	float: left;
-	margin-top: 50px;/*这2句无效，每个div之间没有间隔产生.答：因为b没有浮动，
+	margin-top: 30px;/*这2句无效，每个div之间没有间隔产生.答：因为b没有浮动，
 						它按照父盒子的左边离开20px却还在a区块的宽度以内，所以它会紧靠着a区块，*/
+	height:auto;/*之前想看边框效果所以设置了一个固定高度，但老是容易和上一个div连在一起，原因是应该设高度为auto*/
+    /*border:5px solid #000;*/
+
 }

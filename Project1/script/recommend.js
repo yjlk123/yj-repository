@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-03-24 15:47:05
+* @Last Modified time: 2018-04-05 14:49:22
 */
 /**
 recommend.thml对应的js文件
@@ -26,15 +26,15 @@ function createBox() {
     	//alert("1");
     	
         //判断是否加载
-        if (checkWillLoad())
+        if (checkWillLoad())//该函数在global.js里面
         {
             //创造假数据,后期实现了后台数据库再从数据库获取真实数据
-            var data = {'dataImg':[{ 'usernamer':'Food tester','usericons':'99.jpg','img':'3.jpg','content':'舌尖上的美食舞蹈，你值得拥有'},
-            { 'usernamer':'Food tester','usericons':'98.jpg','img':'4.jpg','content':'来个甜点，轻松好心情'},
-            { 'usernamer':'Food tester','usericons':'97.jpg','img':'1.jpg','content':'帅啊'},
-            { 'usernamer':'Food tester','usericons':'96.jpg','img':'5.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
-            { 'usernamer':'Food tester','usericons':'95.jpg','img':'6.jpg','content':'午后与puppy'},
-            { 'usernamer':'Food tester','usericons':'94.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
+            var data = {'dataImg':[{ 'usernamer':'Food tester','usericons':'201.jpg','img':'3.jpg','content':'舌尖上的美食舞蹈，你值得拥有'},
+            { 'usernamer':'Food tester','usericons':'202.jpg','img':'4.jpg','content':'来个甜点，轻松好心情'},
+            { 'usernamer':'Food tester','usericons':'203.jpg','img':'1.jpg','content':'帅啊'},
+            { 'usernamer':'Food tester','usericons':'204.jpg','img':'5.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
+            { 'usernamer':'Food tester','usericons':'205.jpg','img':'6.jpg','content':'午后与puppy'},
+            { 'usernamer':'Food tester','usericons':'206.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
             //加载数据，先把盒子全建好顺序添加，添完全部的之后再计算布局
             for(var i=0; i<data.dataImg.length; i++)
             {
