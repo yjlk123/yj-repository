@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-25 18:23:20
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-05 16:07:13
+* @Last Modified time: 2018-04-05 18:21:46
 */
 
 /**
@@ -14,10 +14,19 @@ function $(id) {
     return typeof id === 'string'?document.getElementById(id):id;
 }
 
+var i = 0;
 
-//图片的鼠标点击事件
+//图片的鼠标点击事件，不同图片如何计自己的数还未实现///////////////////////////////////////////////////////
 function objclick(){
-	alert(this.className);
+	i++;
+	var temp = i%2;
+	//点击奇数次则改变样式，换类名即可实现
+	if(temp == 1){
+		this.className = 'textpicchange';//注意removeClass和addClass不生效，不是属于js的函数
+	}
+	else{
+		this.className = 'textpic';
+	}
 }
 
 //当网页加载完毕
@@ -55,7 +64,7 @@ function createFirstpageArea(){
             var newTextPic = document.createElement('div');
             newTextPic.className = 'textpic';
 		    newTextArea.appendChild(newTextPic);
-		    //为图片动态添加鼠标点击事件
+		    //为图片动态循环添加鼠标点击事件
             newTextPic.onclick = objclick;
         
             //创建文章图片的img

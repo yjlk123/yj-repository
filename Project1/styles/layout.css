@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-05 16:11:47
+* @Last Modified time: 2018-04-05 18:20:18
 */
 
 /**
@@ -198,6 +198,18 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 	display: inline;
 	float: left;
 	margin-right: 20px;
+
+}
+
+/*点击图片后图片放大，并改变布局方式，文章内容变为放图片下方*/
+.textpicchange{
+	width: auto;
+	cursor:pointer;/*鼠标悬浮时变成手的形状*/
+	width: 100%;
+	height: auto;
+	/*display: inline;
+	float: left;*/
+	margin-bottom: 20px;
 
 }
 
