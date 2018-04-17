@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-25 18:23:20
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-05 18:21:46
+* @Last Modified time: 2018-04-17 21:30:30
 */
 
 /**
@@ -63,8 +63,8 @@ function createFirstpageArea(){
             //创建文章图片的盒子
             var newTextPic = document.createElement('div');
             newTextPic.className = 'textpic';
-		    newTextArea.appendChild(newTextPic);
-		    //为图片动态循环添加鼠标点击事件
+	      newTextArea.appendChild(newTextPic);
+	      //为图片动态循环添加鼠标点击事件
             newTextPic.onclick = objclick;
         
             //创建文章图片的img

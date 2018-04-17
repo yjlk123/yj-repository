@@ -1,8 +1,8 @@
 /*
 * @Author: yj
 * @Date:   2018-02-15 09:35:59
-* @Last Modified by:   yjlk123
-* @Last Modified time: 2018-04-05 10:51:04
+* @Last Modified by:   yj
+* @Last Modified time: 2018-04-17 21:18:58
 */
 /**
 页面公共的函数放这个文件里
@@ -80,6 +80,56 @@ function heightlight(){
 	}
 }
 
+//网页加载完毕后即自动执行该函数
 addLoadEvent(heightlight);
 
 
+//原生javascript写ajax
+//创建请求对象
+function createRequest(){
+	try{
+		request = new XMLHttpRequest();
+	}catch(tryMS){
+		try{
+			request = new ActiveXObject("Msxml2.XMLHTTP");
+		}catch(otherMS){
+			try{
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			}catch(failed){
+				request = null;
+			}
+		}
+	}
+	return request;
+}
+
+//将发送ajax的函数封装为一个工具函数
+function ajax(urlTemplate, callBackFunction){
+	//创建请求对象
+	request = createRequest();
+	if(request == null)
+	{
+		alert("createRequest failed !");
+	}
+	else
+	{
+		var url =urlTemplate;// "a.txt?t='+new Date().getTime()"  //加上t='+new Date().getTime()"的目的是为了消除缓存，每次的t的值不一样
+
+		request.open("GET", url, true);
+		request.send(null);
+		request.onreadystatechange = function(){
+			if(request.readyState == 4)
+			{
+				if(request.status == 200)
+				{
+					callBackFunction(request.responseText)
+				}
+				else
+				{
+					alert(request.status);
+				}
+			}
+		}
+
+	}
+}

@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-05 14:49:22
+* @Last Modified time: 2018-04-17 21:57:08
 */
 /**
 recommend.thml对应的js文件
@@ -11,6 +11,11 @@ recommend.thml对应的js文件
 function $(id) {
     //判断id的类型
     return typeof id === 'string'?document.getElementById(id):id;
+}
+
+//测试函数，需删除
+function callBackFunctiona(ul){
+    alert(ul);
 }
 
 
@@ -70,12 +75,14 @@ function createBox() {
                 var newImg = document.createElement('img');
                 newImg.src = 'images/' + data.dataImg[i].img;
                 newPic.appendChild(newImg);
+                //newImg.onclick = ajax('test.php', callBackFunctiona);
+                alert("222");
 
                 //创建显示文字的盒子
                 var newArticleText = document.createElement('div');
                 newArticleText.className = 'articletext';
                 newBox.appendChild(newArticleText);
-                //创建用户信息里的按钮
+                //创建显示文章的p
                 var newTextDis = document.createElement('p');
                 newTextDis.className = "textdis";
                 newTextDis.innerHTML = data.dataImg[i].content;
