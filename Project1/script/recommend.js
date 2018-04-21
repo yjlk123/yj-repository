@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-17 21:57:08
+* @Last Modified time: 2018-04-21 17:35:33
 */
 /**
 recommend.thml对应的js文件
@@ -75,8 +75,7 @@ function createBox() {
                 var newImg = document.createElement('img');
                 newImg.src = 'images/' + data.dataImg[i].img;
                 newPic.appendChild(newImg);
-                //newImg.onclick = ajax('test.php', callBackFunctiona);
-                alert("222");
+                //newImg.onclick = ajax('/php/test.php', callBackFunctiona);//注意这里需要给出准确的路径
 
                 //创建显示文字的盒子
                 var newArticleText = document.createElement('div');
@@ -96,6 +95,9 @@ function createBox() {
             setTimeout("waterFall('main','box')",1000);            
         }
     //}
+
+    retage = document.getElementById("retag");
+    retage.onclick = function(){ ajax('/php/test.php', callBackFunctiona); };//若带参，正确的调用函数方法如左边
 }
 
 //网页加载后调用函数
