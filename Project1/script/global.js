@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-15 09:35:59
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-21 17:29:18
+* @Last Modified time: 2018-04-22 10:26:33
 */
 /**
 页面公共的函数放这个文件里
@@ -118,10 +118,10 @@ function ajax(urlTemplate, callBackFunction){
 		request.send();////////////////request.send(null);会出现：找不到.php文件的错误
 		//alert("third");//6次
 		request.onreadystatechange = function(){
-			alert("fourth");//18次
+			//alert("fourth");//18次
 			if(request.readyState == 4)
 			{
-				alert("fifth");
+				//alert("fifth");
 				if(request.status == 200)
 				{
 					callBackFunction(request.responseText);//调用的其他文件里的函数，也是可以的，因为都是.js文件

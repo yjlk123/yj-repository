@@ -44,9 +44,25 @@
 		</article>
 	</div>
 
+<!-- 一个循环计数的小测试
+<button onclick="changeState()">开始计时</button>  
+<p>已运行时间</p>
+<p id="content"></p>  
 
+<script>  
+  var x=0;  
+  
+  function changeState(){  
+        x=x+1;  
+        //注意这里的调用方式，使用引号包围  
+        setTimeout("changeState()",1000 );  
+        let content=document.getElementById('content');  
+         content.innerHTML=x;  
+         console.log(x);  
+      }  
+</script>  
+-->
 
-	
 <script type="text/javascript" src="script/global.js">
 		//@ sourceURL=global.js 
 		/*只有加上这句才能在chrome的开发者工具中看到js文件*/

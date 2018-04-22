@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-21 17:35:33
+* @Last Modified time: 2018-04-22 10:30:52
 */
 /**
 recommend.thml对应的js文件
@@ -96,7 +96,7 @@ function createBox() {
         }
     //}
 
-    retage = document.getElementById("retag");
+    var retage = document.getElementById("retag");
     retage.onclick = function(){ ajax('/php/test.php', callBackFunctiona); };//若带参，正确的调用函数方法如左边
 }
 
