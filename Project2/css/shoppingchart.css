@@ -1,0 +1,50 @@
+/*
+* @Author: yj
+* @Date:   2018-04-22 11:28:40
+* @Last Modified by:   yjlk123
+* @Last Modified time: 2018-04-22 17:32:29
+*/
+table{
+        width:100%;
+        position:relative;
+        margin:30px auto;
+        border-collapse: collapse;
+        border:1px solid gray;
+    }
+    th{
+        background-color: #3b5;
+        height:3em;
+    }
+    .tdone{
+        width:10%;
+    }
+    .tdtwo{
+        width:20%;
+    }
+     .tdthree{
+        width:20%;
+    }
+     .tdfour{
+        width:20%;
+    }
+     .tdfive{
+        width:20%;
+    }
+    .tdsix{
+        width:10%;
+    }
+    td{
+        height:3em;
+        text-align: center;
+        border:1px solid #ccc;
+    }
+    .num{
+        display:inline-block;
+        width:3em;
+    }
+    input{
+        height:2em;
+    }
+    .talast{
+        text-align: right;
+    }
