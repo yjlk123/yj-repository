@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-25 18:23:20
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-21 17:10:46
+* @Last Modified time: 2018-04-27 18:55:19
 */
 
 /**
@@ -16,12 +16,10 @@ function $(id) {
 
 var i = 0;
 
-//图片的鼠标点击事件，不同图片如何计自己的数还未实现///////////////////////////////////////////////////////
+//图片的鼠标点击事件
 function objclick(){
-	i++;
-	var temp = i%2;
-	//点击奇数次则改变样式，换类名即可实现
-	if(temp == 1){
+      //通过点击图片实现展示方式的切换
+	if(this.className == 'textpic'){
 		this.className = 'textpicchange';//注意removeClass和addClass不生效，不是属于js的函数
 	}
 	else{
