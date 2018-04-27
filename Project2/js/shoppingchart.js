@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-04-22 11:29:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-27 10:32:34
+* @Last Modified time: 2018-04-27 16:09:04
 */
 
 
@@ -36,7 +36,7 @@ Chart.prototype.plus = function(obtn){
     onum.innerHTML = ++n ;//其实单独的每一栏的数据只是在模型中显示的数据而已，并没有存入对象中，对象是用于记录总体的
     this.totalnum++;//this 是oChart实例
     //alert("11111");//true
-    alert(this);//true ,因为调用该函数的是 ：that.plus(this); 这句，而这句里的that是指的oChart 
+    //alert(this);//true ,因为调用该函数的是 ：that.plus(this); 这句，而这句里的that是指的oChart 
     var oUnit = obtn.parentNode.parentNode.parentNode.querySelector('.unit');
     var osubtotal = obtn.parentNode.parentNode.parentNode.querySelector('.subtal');
     osubtotal.innerHTML = this.getsubtotal(onum.innerHTML,oUnit.innerHTML);//通过调用原型里的函数，来计算小计
