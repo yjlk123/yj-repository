@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>购物车demo</title>
-    <script src="./js/shoppingchart.js"></script>
     <link rel="stylesheet" href="./css/shoppingchart.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <table>
@@ -15,77 +17,81 @@
                 <th class="third">数量</th>
                 <th class="fourth">单价（元）</th>
                 <th class="fifth">小计（元）</th>
-                <th class="sixth">操作</th>
+                <th class="sixth">删除</th>
             </tr>
         </thead>
         <tbody><!--表身-->
             <tr class="trclass">
-                <td class="first xuhao">1</td>
+                <td class="first order">1</td>
                 <td class="second ">暖水壶</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">3</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
             <tr class="trclass">
-                <td class="first xuhao">2</td>
+                <td class="first order">2</td>
                 <td class="second ">桌子</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">5</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
             <tr class="trclass">
-                <td class="first xuhao">3</td>
+                <td class="first order">3</td>
                 <td class="second ">椅子</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">6</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
             <tr class="trclass">
-                <td class="first xuhao">4</td>
+                <td class="first order">4</td>
                 <td class="second ">油烟机</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">9</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
            <tr class="trclass">
-                <td class="first xuhao">5</td>
+                <td class="first order">5</td>
                 <td class="second ">冰箱</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">10</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
             <tr class="trclass">
-                <td class="first xuhao">6</td>
+                <td class="first order">6</td>
                 <td class="second ">洗衣机</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">12</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
            <tr class="trclass">
-                <td class="first xuhao">7</td>
+                <td class="first order">7</td>
                 <td class="second ">空调</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">20</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
             <tr class="trclass">
-                <td class="first xuhao">8</td>
+                <td class="first order">8</td>
                 <td class="second ">电视</td>
-                <td class="third"><span class="jiajie"><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
+                <td class="third"><span><input type="button" value="-"><span class="num">0</span><input type="button" value="+"></span></td>
                 <td class="fourth"><span></span><span class="unit">25</span></td>
                 <td class="fifth"><span></span><span class="subtal">0</span></td>
                 <td class="sixth"><button class="del">删除</button></td>
             </tr>
  
-            <tr><td   colspan="6"; class="talast"><span>商品一共 <span class="goods_num">0</span> 件; 共计花费 <span class="pricetal">0</span> 元</span></td></tr>
+            <tr><td   colspan="6"; class="talast"><span>商品一共 <span class="goods_num">0</span> 件,  共计花费 <span class="pricetal">0</span> 元</span></td></tr>
         </tbody>
     </table>
+    <script src="./js/shoppingchart.js">
+        //@ sourceURL=shoppingchart.js 
+        /*只有加上这句才能在chrome的开发者工具中看到js文件*/
+    </script>
 </body>
 </html>
