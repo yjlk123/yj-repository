@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-22 10:30:52
+* @Last Modified time: 2018-05-03 23:45:53
 */
 /**
 recommend.thml对应的js文件
@@ -17,6 +17,55 @@ function $(id) {
 function callBackFunctiona(ul){
     alert(ul);
 }
+
+
+function modalFunc() {  
+    /*建立模态框对象*/  
+    var modalBox = {};  
+    /*获取模态框*/  
+    modalBox.modal = document.getElementById("myModal");  
+    /*获得trigger按钮*/  
+    modalBox.triggerBtn = document.getElementById("firstpic");  
+    /*获得关闭按钮*/  
+    modalBox.closeBtn = document.getElementById("closeBtn");  
+    /*模态框显示*/  
+    modalBox.show = function() {  
+        console.log(this.modal);  
+        this.modal.style.display = "block";  
+    }  
+    /*模态框关闭*/  
+    modalBox.close = function() {  
+        this.modal.style.display = "none";  
+    }  
+    /*当用户点击模态框内容之外的区域，模态框也会关闭*/  
+    modalBox.outsideClick = function() {  
+        var modal = this.modal;  
+        window.onclick = function(event) {  
+            if(event.target == modal) {  
+                modal.style.display = "none";  
+            }  
+        }  
+    }  
+    /*模态框初始化*/  
+    modalBox.init = function() {  
+        var that = this;  
+        this.triggerBtn.onclick = function() {  
+            that.show();  
+        }  
+        this.closeBtn.onclick = function() {  
+            that.close();  
+        }  
+        this.outsideClick();  
+    }  
+    modalBox.init();  
+  
+}
+
+
+//网页加载后调用函数
+addLoadEvent(modalFunc);
+
+
 
 
 /*///////////////////问题，动态加载的方式在窗口小时没反应*/
@@ -75,7 +124,7 @@ function createBox() {
                 var newImg = document.createElement('img');
                 newImg.src = 'images/' + data.dataImg[i].img;
                 newPic.appendChild(newImg);
-                //newImg.onclick = ajax('/php/test.php', callBackFunctiona);//注意这里需要给出准确的路径
+                //newImg.onclick = clickImg;//注意这里需要给出准确的路径
 
                 //创建显示文字的盒子
                 var newArticleText = document.createElement('div');
@@ -97,7 +146,7 @@ function createBox() {
     //}
 
     var retage = document.getElementById("retag");
-    retage.onclick = function(){ ajax('/php/test.php', callBackFunctiona); };//若带参，正确的调用函数方法如左边
+    retage.onclick = function(){ ajax('/php/test.php', callBackFunctiona); };//若带参想传参，又不想立即调用，正确的调用函数方法如左边
 }
 
 //网页加载后调用函数
