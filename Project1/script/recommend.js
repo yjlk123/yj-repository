@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-03 23:45:53
+* @Last Modified time: 2018-05-05 18:14:03
 */
 /**
 recommend.thml对应的js文件
@@ -24,14 +24,18 @@ function modalFunc() {
     var modalBox = {};  
     /*获取模态框*/  
     modalBox.modal = document.getElementById("myModal");  
-    /*获得trigger按钮*/  
+    /*获得对图片的点击*/  
     modalBox.triggerBtn = document.getElementById("firstpic");  
     /*获得关闭按钮*/  
     modalBox.closeBtn = document.getElementById("closeBtn");  
     /*模态框显示*/  
     modalBox.show = function() {  
-        console.log(this.modal);  
-        this.modal.style.display = "block";  
+        //console.log(this.modal);//显示出模态框  ,this:modalBox
+        //alert(this === modalBox);//true
+        this.modal.style.display = "block"; 
+        var bodyEvent = document.geElementByTagName("body");
+        // addClass(bodyEvent,"unscroll");///////////////////////////点击图片后未实现让body禁止滚动
+        //bodyEvent.className = "unscroll";
     }  
     /*模态框关闭*/  
     modalBox.close = function() {  
@@ -48,9 +52,11 @@ function modalFunc() {
     }  
     /*模态框初始化*/  
     modalBox.init = function() {  
-        var that = this;  
+        var that = this;  //that:modalBox, this:modalBox
+        //alert(this === modalBox);//
         this.triggerBtn.onclick = function() {  
-            that.show();  
+            that.show(); // that:modalBox
+            alert(this);//[object HTMLDivElement]  ,即这个函数里的this变成modalBox.triggerBtn，即该函数是由它触发的，相当于它调用的
         }  
         this.closeBtn.onclick = function() {  
             that.close();  
