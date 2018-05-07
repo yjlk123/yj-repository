@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-06 10:25:01
+* @Last Modified time: 2018-05-07 16:54:41
 */
 /**
 recommend.thml对应的js文件
@@ -32,16 +32,19 @@ function modalFunc() {
     var bodyEvent = document.getElementsByTagName("body");//注意这个函数的拼写和用法
 
     /*模态框显示*/  
-    modalBox.show = function() {  
+    modalBox.show = function(objEvent) {  
         //console.log(this.modal);//显示出模态框  ,this:modalBox
         //alert(this === modalBox);//true
-        this.modal.style.display = "block"; 
+        var objEventSrc = objEvent.src;
+        //alert(objEventSrc);//虽然这个弹出框语句顺序就算在弹出模态框之后，但总是先弹出来
+        this.modal.className = "modalShow"; 
         bodyEvent[0].className = "unscroll";//点击图片后未实现让body禁止滚动
+    
     } 
 
     /*模态框关闭*/  
     modalBox.close = function() {  
-        this.modal.style.display = "none";
+        this.modal.className = "modal"; 
         bodyEvent[0].className = ""; //关闭模态框后恢复body的可滚动  
     }  
 
@@ -52,7 +55,7 @@ function modalFunc() {
                                             //event是为了兼容性，在IE下，window.event是有效的，所以可以不用传event参数，
                                             //Firefox下没window.event这个对象，event只会通过参数传递进来。
             if(event.target == modal) { //注意判断 
-                modal.style.display = "none";
+                modal.className = "modal"; 
                 bodyEvent[0].className = ""; //关闭模态框后恢复body的可滚动
             }  
         }  
@@ -63,8 +66,16 @@ function modalFunc() {
         var that = this;  //that:modalBox, this:modalBox
         //alert(this === modalBox);
         this.triggerBtn.onclick = function() {  
-            that.show(); // that:modalBox
             //alert(this);//[object HTMLDivElement]  ,即这个函数里的this变成modalBox.triggerBtn，即该函数是由它触发的，相当于它调用的
+            //alert(event.srcElement.tagName);//IMG
+            //alert(event.target.src);//正确显示src的绝对地址
+
+            var objTarget = event.srcElement || event.target;//IE浏览器支持window.event.srcElement ， 而firefox支持window.event.target；其他浏览器都支持
+            //alert(objTarget);//[object HTMLImageElement]
+            //var targetsrc = objTarget.src;
+            //alert(targetsrc);//正确显示src的绝对地址
+            
+            that.show(objTarget); // that:modalBox
         }  
         this.closeBtn.onclick = function() {  
             that.close();  

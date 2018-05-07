@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-05 12:06:48
+* @Last Modified time: 2018-05-07 16:59:51
 */
 
 /**
@@ -233,8 +233,13 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 /*模态框*/
 .modal {  
     display: none; /* 默认隐藏 */  
+}
+
+/*显示模态框*/
+.modalShow {  
+    display: block; /* 默认隐藏 */  
     position: fixed; /* 根据浏览器定位 */  
-    z-index: 1; /* 放在顶部，底部的依次比1小 */  
+    z-index: 200; /* 放在顶部，底部的依次比1小 */  
     left: 0;  /*设置了position为fixed,所以要设置具体的坐标，下面那句同*/
     top: 0;  
     width: 100%; /* 全宽 */  
@@ -242,6 +247,7 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     overflow: auto; /* 允许滚动 */  
     background-color: rgba(0,0,0,0.4); /* 背景色设置为黑色，透明度为0.4（0<=取值<=1） */  
 }  
+
 /*模态框内容*/  
 .modal-content {  
     display: flex; /*采用flexbox布局*/  
@@ -249,7 +255,7 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     position: relative;  /*生成相对定位的元素，相对于其正常位置进行定位。若配合坐标使用，如"left:20" 会向元素的 LEFT 位置添加 20 像素。
 						    其实一般用的多的是用Margin，这是相对于前面的容器定位的*/
     background-color: #fefefe;  
-    margin: 15% auto; /*距顶部15% 水平居中；第一个表示上下的距离，第二个表示左右*/  
+    margin: 3% auto; /*距顶部15% 水平居中；第一个表示上下的距离，第二个表示左右*/  
     padding: 20px;  /*与margin的用法一致*/
     border: 1px solid #888;  
     width: 80%;  
@@ -301,6 +307,21 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     cursor: pointer;  /*光标改变样式为手指形状*/
 }  
 
+/*模态框出现后限制body滚动*/
 .unscroll{
 	overflow: hidden;
+}
+
+
+.modal-pic{
+    /*边框*/
+    /*border:1px solid #000;*/
+	height: auto;
+
+}
+
+.modal-pic img{
+    width: 100%;/*每个卡片的大小*/
+	max-width: 100%;
+	max-height: 100%;
 }
