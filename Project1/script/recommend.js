@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-07 16:54:41
+* @Last Modified time: 2018-05-08 11:57:36
 */
 /**
 recommend.thml对应的js文件
@@ -19,76 +19,78 @@ function callBackFunctiona(ul){
 }
 
 
-function modalFunc() {  
-    /*建立模态框对象*/  
-    var modalBox = {};  
+
+/*模态框的构造函数*/
+function ModalBox(eventUserImg,eventUserName,eventSrc,eventArticleText){
     /*获取模态框*/  
-    modalBox.modal = document.getElementById("myModal");  
+    this.modal = document.getElementById("myModal");  
     /*获得对图片的点击*/  
-    modalBox.triggerBtn = document.getElementById("firstpic");  
+    this.eventUserImg = eventUserImg;  
+    this.eventUserName = eventUserName;  
+    this.eventSrc = eventSrc;  
+    this.eventArticleText = eventArticleText;  
     /*获得关闭按钮*/  
-    modalBox.closeBtn = document.getElementById("closeBtn"); 
-    /*获得body,用于之后控制其滚动*/
-    var bodyEvent = document.getElementsByTagName("body");//注意这个函数的拼写和用法
+    this.closeBtn = document.getElementById("closeBtn"); 
 
-    /*模态框显示*/  
-    modalBox.show = function(objEvent) {  
-        //console.log(this.modal);//显示出模态框  ,this:modalBox
-        //alert(this === modalBox);//true
-        var objEventSrc = objEvent.src;
-        //alert(objEventSrc);//虽然这个弹出框语句顺序就算在弹出模态框之后，但总是先弹出来
-        this.modal.className = "modalShow"; 
-        bodyEvent[0].className = "unscroll";//点击图片后未实现让body禁止滚动
-    
-    } 
-
-    /*模态框关闭*/  
-    modalBox.close = function() {  
-        this.modal.className = "modal"; 
-        bodyEvent[0].className = ""; //关闭模态框后恢复body的可滚动  
-    }  
-
-    /*当用户点击模态框内容之外的区域，模态框也会关闭*/  
-    modalBox.outsideClick = function() {  
-        var modal = this.modal;//注意用法  
-        window.onclick = function(event) {  //这个区域是以window来触发的，注意区别前面两个函数都是由点击按钮触发
-                                            //event是为了兼容性，在IE下，window.event是有效的，所以可以不用传event参数，
-                                            //Firefox下没window.event这个对象，event只会通过参数传递进来。
-            if(event.target == modal) { //注意判断 
-                modal.className = "modal"; 
-                bodyEvent[0].className = ""; //关闭模态框后恢复body的可滚动
-            }  
-        }  
-    }  
-
-    /*模态框初始化*/  
-    modalBox.init = function() {  
-        var that = this;  //that:modalBox, this:modalBox
-        //alert(this === modalBox);
-        this.triggerBtn.onclick = function() {  
-            //alert(this);//[object HTMLDivElement]  ,即这个函数里的this变成modalBox.triggerBtn，即该函数是由它触发的，相当于它调用的
-            //alert(event.srcElement.tagName);//IMG
-            //alert(event.target.src);//正确显示src的绝对地址
-
-            var objTarget = event.srcElement || event.target;//IE浏览器支持window.event.srcElement ， 而firefox支持window.event.target；其他浏览器都支持
-            //alert(objTarget);//[object HTMLImageElement]
-            //var targetsrc = objTarget.src;
-            //alert(targetsrc);//正确显示src的绝对地址
-            
-            that.show(objTarget); // that:modalBox
-        }  
-        this.closeBtn.onclick = function() {  
-            that.close();  
-        }  
-        this.outsideClick();  
-    }  
-    modalBox.init();  
-  
 }
 
+/*模态框显示*/
+ModalBox.prototype.show = function(objEvent) {
+    /*获得body,用于之后控制其滚动*/
+    var bodyEvent = document.getElementsByTagName("body");//注意这个函数的拼写和用法
+    this.modal.className = "modalShow"; 
+    bodyEvent[0].className = "unscroll";//点击图片后未实现让body禁止滚动
+    // var temp = document.getElementsByClassName("modal-pic");
+    // var tempp = temp[0].firstChild;
+    // var temppp = tempp.src;
+    // alert(temppp);
+} 
 
-//网页加载后调用函数
-addLoadEvent(modalFunc);
+
+/*模态框关闭*/  
+ModalBox.prototype.close = function() {
+    /*获得body,用于之后控制其滚动*/
+    var bodyEvent = document.getElementsByTagName("body");//注意这个函数的拼写和用法
+    this.modal.className = "modal"; 
+    bodyEvent[0].className = ""; //关闭模态框后恢复body的可滚动  
+}  
+
+
+/*当用户点击模态框内容之外的区域，模态框也会关闭*/  
+ModalBox.prototype.outsideClick = function() {  
+    var modal = this.modal;//注意用法 
+    var bodyEvent = document.getElementsByTagName("body");//注意这个函数的拼写和用法 
+    window.onclick = function(event) {  //这个区域是以window来触发的，注意区别前面两个函数都是由点击按钮触发
+                                        //event是为了兼容性，在IE下，window.event是有效的，所以可以不用传event参数，
+                                        //Firefox下没window.event这个对象，event只会通过参数传递进来。
+        if(event.target == modal) { //注意判断 
+            modal.className = "modal"; 
+            bodyEvent[0].className = ""; //关闭模态框后恢复body的可滚动
+        }  
+    }  
+}  
+
+/*点击图片区域展开模态框*/
+function clickPic(){
+    //获取当前的元素
+    var objTarget = event.srcElement || event.target;
+    //获取当前元素的用户信息中的图标
+    var targetUserImg = objTarget.parentNode.previousSibling.firstChild.src;
+    //获取当前元素的用户信息中的用户名
+    var targetUserName = objTarget.parentNode.previousSibling.firstChild.nextSibling.innerHTML;
+    //获取当前元素的图片地址
+    var targetSrc = objTarget.src;
+    //获取当前元素的文章内容
+    var targetArticleText = objTarget.parentNode.nextSibling.firstChild.innerHTML;
+    //alert(targetArticleText);
+
+    var modalInstance = new ModalBox(targetUserImg,targetUserName,targetSrc,targetArticleText);
+    modalInstance.show();
+    modalInstance.closeBtn.onclick = function() {  
+            modalInstance.close();  
+        } 
+    modalInstance.outsideClick(); 
+}
 
 
 
@@ -108,9 +110,10 @@ function createBox() {
         if (checkWillLoad())//该函数在global.js里面
         {
             //创造假数据,后期实现了后台数据库再从数据库获取真实数据
-            var data = {'dataImg':[{ 'usernamer':'Food tester','usericons':'201.jpg','img':'3.jpg','content':'舌尖上的美食舞蹈，你值得拥有'},
+            var data = {'dataImg':[{ 'usernamer':'Food tester','usericons':'201.jpg','img':'10.jpg','content':'舌尖上的美食舞蹈，你值得拥有'},
             { 'usernamer':'Food tester','usericons':'202.jpg','img':'4.jpg','content':'来个甜点，轻松好心情'},
-            { 'usernamer':'Food tester','usericons':'203.jpg','img':'1.jpg','content':'帅啊'},
+            { 'usernamer':'Food tester','usericons':'203.jpg','img':'11.jpg','content':'帅啊'},
+            { 'usernamer':'Food tester','usericons':'204.jpg','img':'12.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
             { 'usernamer':'Food tester','usericons':'204.jpg','img':'5.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'6.jpg','content':'午后与puppy'},
             { 'usernamer':'Food tester','usericons':'206.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
@@ -145,11 +148,11 @@ function createBox() {
                 var newPic = document.createElement('div');
                 newPic.className = 'pic';
                 newBox.appendChild(newPic);
+                newPic.onclick = clickPic;//注意这里需要给出准确的路径
                 //创建img
                 var newImg = document.createElement('img');
                 newImg.src = 'images/' + data.dataImg[i].img;
                 newPic.appendChild(newImg);
-                //newImg.onclick = clickImg;//注意这里需要给出准确的路径
 
                 //创建显示文字的盒子
                 var newArticleText = document.createElement('div');
@@ -185,6 +188,7 @@ function  waterFall(parent,box) {
     var allBox = $(parent).getElementsByClassName(box);
     //求出盒子的宽度
     var boxWidth = allBox[0].offsetWidth;
+    //var boxWidth = 290;//当没有预置的卡片时，这些地方需要改
     //求出浏览器的宽度(包括边框的宽高)
     var screenWidtn = document.body.offsetWidth;
     //求出列数 //取整函数取整
