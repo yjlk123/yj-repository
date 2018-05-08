@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-08 11:57:36
+* @Last Modified time: 2018-05-08 17:18:30
 */
 /**
 recommend.thml对应的js文件
@@ -31,7 +31,6 @@ function ModalBox(eventUserImg,eventUserName,eventSrc,eventArticleText){
     this.eventArticleText = eventArticleText;  
     /*获得关闭按钮*/  
     this.closeBtn = document.getElementById("closeBtn"); 
-
 }
 
 /*模态框显示*/
@@ -40,10 +39,8 @@ ModalBox.prototype.show = function(objEvent) {
     var bodyEvent = document.getElementsByTagName("body");//注意这个函数的拼写和用法
     this.modal.className = "modalShow"; 
     bodyEvent[0].className = "unscroll";//点击图片后未实现让body禁止滚动
-    // var temp = document.getElementsByClassName("modal-pic");
-    // var tempp = temp[0].firstChild;
-    // var temppp = tempp.src;
-    // alert(temppp);
+    var temp = document.getElementsByClassName("modal-img");
+    temp[0].src = this.eventSrc;
 } 
 
 

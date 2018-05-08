@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-07 16:59:51
+* @Last Modified time: 2018-05-08 17:21:43
 */
 
 /**
@@ -245,7 +245,7 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     width: 100%; /* 全宽 */  
     height: 100%; /* 全高 */  
     overflow: auto; /* 允许滚动 */  
-    background-color: rgba(0,0,0,0.4); /* 背景色设置为黑色，透明度为0.4（0<=取值<=1） */  
+    background-color: rgba(0,0,0,0.7); /* 背景色设置为黑色，透明度为0.4（0<=取值<=1） */  
 }  
 
 /*模态框内容*/  
@@ -258,7 +258,7 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     margin: 3% auto; /*距顶部15% 水平居中；第一个表示上下的距离，第二个表示左右*/  
     padding: 20px;  /*与margin的用法一致*/
     border: 1px solid #888;  
-    width: 80%;  
+    width: 70%;  
     animation: topDown 0.5s; /*自定义动画，从模态框内容上到下出现，这四句都是为了浏览器兼容，但ie不行///////////////////*/  
 	-moz-animation:topDown 0.5s; /* Firefox */
 	-webkit-animation:topDown 0.5s; /* Safari and Chrome */
