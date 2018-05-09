@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-08 17:18:30
+* @Last Modified time: 2018-05-09 10:02:29
 */
 /**
 recommend.thml对应的js文件
@@ -79,7 +79,6 @@ function clickPic(){
     var targetSrc = objTarget.src;
     //获取当前元素的文章内容
     var targetArticleText = objTarget.parentNode.nextSibling.firstChild.innerHTML;
-    //alert(targetArticleText);
 
     var modalInstance = new ModalBox(targetUserImg,targetUserName,targetSrc,targetArticleText);
     modalInstance.show();

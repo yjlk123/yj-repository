@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-08 17:21:43
+* @Last Modified time: 2018-05-09 10:00:20
 */
 
 /**
@@ -120,8 +120,12 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     /*边框*/
     /*border:1px solid #000;*/
 	height: auto;
-
 }
+
+.pic:hover{
+	cursor: pointer;
+}
+
 
 .pic img{
     width: 290px;/*每个卡片的大小*/
@@ -130,13 +134,11 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 }
 .user{
 	height: 50px;
+	margin: 5px 0px 0px 5px;
 }
 .articletext{
 	height: 80px;
 	width: 270px;
-}
-.user{
-	margin: 5px 0px 0px 5px;
 }
 
 .concern{
@@ -317,11 +319,36 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     /*边框*/
     /*border:1px solid #000;*/
 	height: auto;
+	margin: 0px -21px 0px -21px;
 
 }
 
 .modal-pic img{
-    width: 100%;/*每个卡片的大小*/
+    width: 100%;
 	max-width: 100%;
 	max-height: 100%;
+}
+
+
+.modal-usericon{
+	width: 50px;
+	height: 50px;
+}
+
+.modal-concern{
+	margin: 5px 65px 5px 65px;
+}
+
+.modal-username{
+	font-size: 150%;
+}
+
+.modal-user{
+	margin-bottom: 20px;
+}
+
+.modal-articletext{
+	margin: 20px 0px 70px 0px;
+	height: auto;
+	width: 100%;
 }

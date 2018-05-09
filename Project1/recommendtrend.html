@@ -127,19 +127,21 @@
 	<!-- 模态框 -->  
     <div id="myModal" class="modal">  
         <div class="modal-content"> <!--使用bootstrap的模态框类--> 
-        	<!--模态框头-->
-            <div class="modal-header">  
+        	<!--模态框关闭按钮-->
+            <div>  
                 <span id="closeBtn" class="close">×</span>
                 <!-- <button type="button" id="closeBtn" class="close" data-dismiss="modal" aria-hidden="true">×</button>  --> 
             </div> 
 
+
         	<!--模态框体-->
-            <div class="modal-body">  
+            <div>  <!-- class="modal-body" -->
 	            <div class="modal-box modal-img-rounded">
+
 			        	<!--用户信息的盒子-->
 			        	<div class="modal-user">
 			        		<img src="images/201.jpg" class="modal-usericon">
-			        		<span>We are one</span>
+			        		<span class="modal-username">We are one</span>
 			        		<button class="btn btn-default modal-concern">关注 +</button>
 			        	</div>
 			             <!--图片盒子-->
@@ -154,8 +156,8 @@
             </div>
 
         	<!--模态框尾部-->
-            <div class="modal-footer">  
-            </div>  
+            <!-- <div class="modal-footer">  
+            </div>   -->
         </div>  
     </div>  
 
