@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-09 10:02:29
+* @Last Modified time: 2018-05-10 11:33:05
 */
 /**
 recommend.thml对应的js文件
@@ -18,17 +18,64 @@ function callBackFunctiona(ul){
     alert(ul);
 }
 
+/*点击关注按钮后的操作*/
+function clickConcernBtn(event){//注意：要传参
+    //方法1
+    //这种方法对动态生成的不生效
+    // var concernBtn = document.getElementsByClassName("concernclick");
+    // for(var i = 0;i < concernBtn.length; i++){
+    //     concernBtn[i].onclick = function(){
+    //         alert(this);
+    //    }
+    // }
+    //setTimeout("clickConcernBtn()",2000);//无限循环不要用，卡到怀疑人生！
+
+    //方法2
+    //这种方法对模态框里的按钮不生效
+    // window.onclick = function (event){//注意：加上这个若传参就正确，没有传参就无法进入该函数
+    //     alert("3");
+    //     var objTarget = event.srcElement || event.target;
+    //     var objTargetClass = objTarget.className;
+    //     if(objTargetClass.indexOf("concernclick") > 0 ){
+    //        alert("23");
+    //     }
+    // }
+
+    var objTarget = event.srcElement || event.target;
+    var objTargetClass = objTarget.className;
+    if(objTargetClass != ""){//注意：判断的语句写法
+       if(objTarget.innerHTML == "关注 +")//objTargetClass.indexOf("concernclick") > 0  //用于判断语句中是否包含有指定的语句
+       {
+           objTarget.innerHTML = "取消关注";
+           //addClass(objTarget,"btn-danger");//注意：只是添加类的话，不会生效，会被之前的btn-default覆盖，需要替换之前的button的类
+           var classVal = objTargetClass.replace("btn-default"," btn-inverse");
+           objTarget.setAttribute("class",classVal );
+        }
+        else
+        {
+            objTarget.innerHTML = "关注 +";
+           var classVal = objTargetClass.replace(" btn-inverse","btn-default");
+           objTarget.setAttribute("class",classVal );
+
+        }
+    }
+}
+
+
 
 
 /*模态框的构造函数*/
-function ModalBox(eventUserImg,eventUserName,eventSrc,eventArticleText){
+function ModalBox(eventUserImg,eventUserName,targetUserConcern,eventSrc,eventArticleText){
     /*获取模态框*/  
     this.modal = document.getElementById("myModal");  
     /*获得对图片的点击*/  
     this.eventUserImg = eventUserImg;  
     this.eventUserName = eventUserName;  
+    this.eventUserConcern = targetUserConcern;
     this.eventSrc = eventSrc;  
     this.eventArticleText = eventArticleText;  
+    /*获得关注按钮*/  
+    this.concernBtn = document.getElementById("modal-concern-btn"); 
     /*获得关闭按钮*/  
     this.closeBtn = document.getElementById("closeBtn"); 
 }
@@ -37,12 +84,45 @@ function ModalBox(eventUserImg,eventUserName,eventSrc,eventArticleText){
 ModalBox.prototype.show = function(objEvent) {
     /*获得body,用于之后控制其滚动*/
     var bodyEvent = document.getElementsByTagName("body");//注意这个函数的拼写和用法
+    var concernBtnClick = document.getElementsByClassName("modal-concern");
     this.modal.className = "modalShow"; 
     bodyEvent[0].className = "unscroll";//点击图片后未实现让body禁止滚动
     var temp = document.getElementsByClassName("modal-img");
     temp[0].src = this.eventSrc;
+
+    //关注按钮根据现有状况显示
+    if(this.eventUserConcern == "取消关注")
+    {
+        concernBtnClick[0].innerHTML = "取消关注";
+        var eventConcernClass = concernBtnClick[0].className;
+        var classVal = eventConcernClass.replace("btn-success"," btn-inverse");
+        concernBtnClick[0].setAttribute("class",classVal );
+    }
+
 } 
 
+/*点击模态框里的关注按钮*/  ///////////////////////////////有问题待整改
+ModalBox.prototype.concernModalBtnClick = function(event){
+    var objTarget = event.srcElement || event.target;
+    alert(objTarget);
+    objTargetClass = objTarget.className;
+    if(objTargetClass != ""){//注意：判断的语句写法
+           if(objTarget.innerHTML == "关注 +")//objTargetClass.indexOf("concernclick") > 0  //用于判断语句中是否包含有指定的语句
+           {
+               objTarget.innerHTML = "取消关注";
+               //addClass(objTarget,"btn-danger");//注意：只是添加类的话，不会生效，会被之前的btn-default覆盖，需要替换之前的button的类
+               var classVal = objTargetClass.replace("btn-success"," btn-inverse");
+               objTarget.setAttribute("class",classVal );
+            }
+            else
+            {
+                objTarget.innerHTML = "关注 +";
+               var classVal = objTargetClass.replace(" btn-inverse","btn-success");
+               objTarget.setAttribute("class",classVal );
+
+            }
+        }
+}
 
 /*模态框关闭*/  
 ModalBox.prototype.close = function() {
@@ -63,6 +143,7 @@ ModalBox.prototype.outsideClick = function() {
         if(event.target == modal) { //注意判断 
             modal.className = "modal"; 
             bodyEvent[0].className = ""; //关闭模态框后恢复body的可滚动
+            //modalInstance = null; 
         }  
     }  
 }  
@@ -75,15 +156,23 @@ function clickPic(){
     var targetUserImg = objTarget.parentNode.previousSibling.firstChild.src;
     //获取当前元素的用户信息中的用户名
     var targetUserName = objTarget.parentNode.previousSibling.firstChild.nextSibling.innerHTML;
+    //获取当前元素的用户信息中的关注按钮
+    var targetUserConcern = objTarget.parentNode.previousSibling.firstChild.nextSibling.nextSibling.innerHTML;
     //获取当前元素的图片地址
     var targetSrc = objTarget.src;
     //获取当前元素的文章内容
     var targetArticleText = objTarget.parentNode.nextSibling.firstChild.innerHTML;
 
-    var modalInstance = new ModalBox(targetUserImg,targetUserName,targetSrc,targetArticleText);
+    var modalInstance = new ModalBox(targetUserImg,targetUserName,targetUserConcern,targetSrc,targetArticleText);
     modalInstance.show();
+    //点击关注按钮，待整改//////////////////////////////////
+    modalInstance.concernBtn.onclick = function() {
+        //var that = this;  
+        //modalInstance.concernModalBtnClick(that); 
+    } 
     modalInstance.closeBtn.onclick = function() {  
-            modalInstance.close();  
+            modalInstance.close(); 
+            //modalInstance = null; 
         } 
     modalInstance.outsideClick(); 
 }
@@ -139,6 +228,7 @@ function createBox() {
                 newUserButton.className = "btn btn-default concern";
                 newUserButton.innerHTML = '关注 +';
                 newUser.appendChild(newUserButton);
+                newUserButton.onclick = clickConcernBtn;//点击关注按钮后的反应
 
                 //创建图片的盒子
                 var newPic = document.createElement('div');
