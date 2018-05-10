@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-10 11:33:05
+* @Last Modified time: 2018-05-10 18:22:56
 */
 /**
 recommend.thml对应的js文件
@@ -89,6 +89,8 @@ ModalBox.prototype.show = function(objEvent) {
     bodyEvent[0].className = "unscroll";//点击图片后未实现让body禁止滚动
     var temp = document.getElementsByClassName("modal-img");
     temp[0].src = this.eventSrc;
+    var tempText = document.getElementById("modal-textdis");
+    tempText.innerHTML = this.eventArticleText;
 
     //关注按钮根据现有状况显示
     if(this.eventUserConcern == "取消关注")
@@ -200,7 +202,12 @@ function createBox() {
             { 'usernamer':'Food tester','usericons':'203.jpg','img':'11.jpg','content':'帅啊'},
             { 'usernamer':'Food tester','usericons':'204.jpg','img':'12.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
             { 'usernamer':'Food tester','usericons':'204.jpg','img':'5.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
+            { 'usernamer':'Food tester','usericons':'205.jpg','img':'16.jpg','content':'你是我的花呀'},
+            { 'usernamer':'Food tester','usericons':'205.jpg','img':'14.jpg','content':'立夏 | 竹杖芒鞋轻胜马，一蓑烟雨任平生。'},           
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'6.jpg','content':'午后与puppy'},
+            { 'usernamer':'Food tester','usericons':'205.jpg','img':'13.jpg','content':'午后与puppy'},
+            { 'usernamer':'Food tester','usericons':'205.jpg','img':'17.jpg','content':'卷卷真的好喜欢活力满满的运动场呀～手臂上的皮炎也好啦，开心！！！'},
+            { 'usernamer':'Food tester','usericons':'205.jpg','img':'15.jpg','content':'好吧暖光系画手根本不会冷下来.....'},
             { 'usernamer':'Food tester','usericons':'206.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
             //加载数据，先把盒子全建好顺序添加，添完全部的之后再计算布局
             for(var i=0; i<data.dataImg.length; i++)
