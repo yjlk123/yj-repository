@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-04-22 11:29:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-04-27 16:09:04
+* @Last Modified time: 2018-05-07 16:27:51
 */
 
 
@@ -118,4 +118,4 @@ function shoppingChart(){
     oChart.bind();
 }
 
-window.onload = shoppingChart;//注意这里不是立即调用
+window.onload = shoppingChart;//注意这里用法，不是立即调用

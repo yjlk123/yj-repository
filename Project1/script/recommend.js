@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-10 18:36:17
+* @Last Modified time: 2018-05-13 20:09:09
 */
 /**
 recommend.thml对应的js文件
@@ -87,6 +87,8 @@ ModalBox.prototype.show = function(objEvent) {
     var concernBtnClick = document.getElementsByClassName("modal-concern");
     this.modal.className = "modalShow"; 
     bodyEvent[0].className = "unscroll";//点击图片后未实现让body禁止滚动
+    var modalUserImg = document.getElementsByClassName("modal-usericon");
+    modalUserImg[0].src = this.eventUserImg;
     var temp = document.getElementsByClassName("modal-img");
     temp[0].src = this.eventSrc;
     var tempText = document.getElementById("modal-textdis");
