@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-13 20:14:28
+* @Last Modified time: 2018-05-13 20:36:39
 */
 
 /**
@@ -98,6 +98,11 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 	background-color:#299;
 }
 
+/*#artic{
+	float: left;
+    position: relative;
+    left: 50%;
+}*/
 
 #main{
     /*定位*/
@@ -106,7 +111,9 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     margin-top: 120px;
     margin-right: auto;/*这两句实现居中*/
     margin-left: auto;
-
+    /*float: left;
+    position: relative;
+    left:-50%;*/
 }
 .box{
     /*内边距*/    
