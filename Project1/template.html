@@ -56,6 +56,18 @@ body{border:1px dashed purple;} */
  
 }
 
+li + li + li {font-weight:bold;}
+
+
+/*有问题啊，和下面那个h1对比*/
+p > i {
+  font-weight:bold;
+  } 
+
+h1 > strong {color:red;}
+
+
+
 </style> 
 
 </head>
@@ -69,8 +81,43 @@ body{border:1px dashed purple;} */
 
     </div>
 
+    <div>
 
 
+
+
+
+<p>some 
+    <i>text</i>
+    . some 
+    <i>text</i>
+    .
+    <span>
+        <i>
+            nei
+        </i>
+    </span>
+
+</p>
+<p>some <i>text</i>. some <i>text</i>.</p>
+
+
+<h1>This is <strong>very</strong> <strong>very</strong> important.</h1>
+<h1>This is <em>really <strong>very</strong></em> important.</h1>
+
+
+
+  <ul>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>
+  <ol>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ol>
+</div>
 
 
 

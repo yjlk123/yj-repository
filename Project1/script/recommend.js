@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-13 20:09:09
+* @Last Modified time: 2018-05-16 16:37:53
 */
 /**
 recommend.thml对应的js文件
@@ -156,6 +156,10 @@ ModalBox.prototype.outsideClick = function() {
 function clickPic(){
     //获取当前的元素
     var objTarget = event.srcElement || event.target;
+    // while (tem.nodeType !=1)//为了兼容浏览器previousSibling方法的不同
+    // {
+    //     tem = tem.previousSibling;
+    // }
     //获取当前元素的用户信息中的图标
     var targetUserImg = objTarget.parentNode.previousSibling.firstChild.src;
     //获取当前元素的用户信息中的用户名
@@ -187,13 +191,13 @@ function clickPic(){
 /*///////////////////问题，动态加载的方式在窗口小时没反应*/
 //当网页加载完毕
 function createBox() {
-    //瀑布流布局 保证传的参数能够找到父盒子
+    //瀑布流布局 保证传的参数能够找到父盒子。这句是为静态的盒子实现瀑布流布局，静态盒子一开始是没有布局的
     waterFall('main','box');
     
     //滚动加载盒子
     //window.onscroll = function ()//断点调试时进不去这个函数，因为这个函数是对翻滚页面的反应，而调试时并没有翻滚页面
     //{
-    	//alert("1");
+
     	
         //判断是否加载
         if (checkWillLoad())//该函数在global.js里面
@@ -201,7 +205,8 @@ function createBox() {
             //创造假数据,后期实现了后台数据库再从数据库获取真实数据
             var data = {'dataImg':[{ 'usernamer':'Food tester','usericons':'201.jpg','img':'10.jpg','content':'舌尖上的美食舞蹈，你值得拥有'},
             { 'usernamer':'Food tester','usericons':'202.jpg','img':'4.jpg','content':'来个甜点，轻松好心情'},
-            { 'usernamer':'Food tester','usericons':'203.jpg','img':'11.jpg','content':'帅啊'},
+            { 'usernamer':'Food tester','usericons':'203.jpg','img':'15.jpg','content':'帅啊'},
+            { 'usernamer':'Food tester','usericons':'203.jpg','img':'3.jpg','content':'ok'},
             { 'usernamer':'Food tester','usericons':'204.jpg','img':'12.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
             { 'usernamer':'Food tester','usericons':'204.jpg','img':'5.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'16.jpg','content':'你是我的花呀'},
@@ -273,6 +278,20 @@ function createBox() {
     retage.onclick = function(){ ajax('/php/test.php', callBackFunctiona); };//若带参想传参，又不想立即调用，正确的调用函数方法如左边
 }
 
+
+//为静态盒子的点击添加事件
+function fixedBoxClick(){
+    //添加点击事件
+    var fixedboxs = document.getElementsByClassName("fixedbox");
+    for(var j = 0; j<fixedboxs.length; j++)
+    {
+        fixedboxs[j].onclick = clickPic;
+    }
+}
+
+//网页加载后调用函数
+addLoadEvent(fixedBoxClick);
+
 //网页加载后调用函数
 addLoadEvent(createBox);
 
@@ -288,7 +307,7 @@ function  waterFall(parent,box) {
     //求出浏览器的宽度(包括边框的宽高)
     var screenWidtn = document.body.offsetWidth;
     //求出列数 //取整函数取整
-    var cols = Math.floor( screenWidtn/boxWidth);
+    var cols = Math.floor(screenWidtn/boxWidth);
     //父标签居中
     //先求出父标签宽度
     var parentWith = boxWidth * cols +150;
@@ -314,6 +333,7 @@ function  waterFall(parent,box) {
         else//剩下的盒子都需要瀑布流布局
         {
             //求出最矮的盒子高度
+            //alert(this);
             var minBoxHeight = Math.min.apply(this,heightArr);
             //求出最矮盒子对应的索引
             var minBoxIndex = getMinBoxIndex(minBoxHeight,heightArr);
