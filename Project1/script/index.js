@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-25 18:23:20
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-08 10:40:38
+* @Last Modified time: 2018-05-18 17:27:30
 */
 
 /**
@@ -32,10 +32,10 @@ function createFirstpageArea(){
 	//判断是否加载
 	//if(checkWillLoad()){//此处判断是否加载的函数时不对的，是recommend.js里的函数，并不通用
 		//创造假数据，后期完善数据库后从数据库里取数据
-		var firstpageData = {'firstpageInfo':[{'userImg':'101.jpg','userName':'analyser','textImg':'9.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'},
-							{'userImg':'102.jpg','userName':'analyser','textImg':'3.jpg','textContent':'来自和绑红丝带买不到于是放弃了肩饰…就这样吧上个滤镜剩下交给摄影师！！'},
-							{'userImg':'103.jpg','userName':'analyser','textImg':'1.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'},
-							{'userImg':'101.jpg','userName':'analyser','textImg':'7.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'}
+		var firstpageData = {'firstpageInfo':[{'userImg':'101.jpg','userName':'analyser','textImg':'9s.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'},
+							{'userImg':'102.jpg','userName':'analyser','textImg':'3s.jpg','textContent':'来自和绑红丝带买不到于是放弃了肩饰…就这样吧上个滤镜剩下交给摄影师！！'},
+							{'userImg':'103.jpg','userName':'analyser','textImg':'1s.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'},
+							{'userImg':'101.jpg','userName':'analyser','textImg':'7s.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'}
 							]};
 		//动态加载数据
 		for(var i = 0; i<firstpageData.firstpageInfo.length; i++){
