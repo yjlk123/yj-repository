@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-18 14:49:31
+* @Last Modified time: 2018-05-18 17:00:01
 */
 /**
 recommend.thml对应的js文件
@@ -167,7 +167,10 @@ function clickPic(){
     //获取当前元素的用户信息中的关注按钮
     var targetUserConcern = objTarget.parentNode.previousSibling.firstChild.nextSibling.nextSibling.innerHTML;
     //获取当前元素的图片地址
-    var targetSrc = objTarget.src;
+    var oldSrc = objTarget.src;
+    //使用正则表达式将图片的地址换成大一点的图片地址
+    var neStr = oldSrc.replace(/.jpg/, "s.jpg");
+    var targetSrc = neStr;
     //获取当前元素的文章内容
     var targetArticleText = objTarget.parentNode.nextSibling.firstChild.innerHTML;
 
@@ -202,7 +205,8 @@ function createBox() {
             // { 'usernamer':'Food tester','usericons':'203.jpg','img':'3.jpg','content':'ok'},
             // { 'usernamer':'Food tester','usericons':'204.jpg','img':'12.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
             // { 'usernamer':'Food tester','usericons':'204.jpg','img':'5.jpg','content':'铲屎官，你的地盘被朕征用啦！'},
-            
+            // { 'usernamer':'Food tester','usericons':'206.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
+
 
     	
         //判断是否加载
@@ -216,8 +220,7 @@ function createBox() {
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'6.jpg','content':'卷卷真的好喜欢活力满满的运动场呀～手臂上的皮炎也好啦，开心！！！'},
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'13.jpg','content':'午后与puppy'},
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'17.jpg','content':'我们要懂得一天一天明白自己的平凡，同时也要一天一天愈加相信自己有点不平凡！'},
-            { 'usernamer':'Food tester','usericons':'205.jpg','img':'14.jpg','content':'立夏 | 竹杖芒鞋轻胜马，一蓑烟雨任平生。'},           
-            { 'usernamer':'Food tester','usericons':'206.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
+            { 'usernamer':'Food tester','usericons':'205.jpg','img':'5.jpg','content':'立夏 | 竹杖芒鞋轻胜马，一蓑烟雨任平生。'}]};           
             
             //使用createDocumentFragment提升加载效率
             var oFragment = document.createDocumentFragment();
@@ -279,7 +282,7 @@ function createBox() {
 
             //把刚创建的盒子瀑布流布局
             //加延时的原因：为了解决获取动态加载图片的高度老是不成功的问题，浏览器原因，FireFox并没有问题
-            setTimeout("waterFall('main','box')",50);            
+            setTimeout("waterFall('main','box')",500);            
         }
     //}
 
