@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-16 16:37:53
+* @Last Modified time: 2018-05-18 11:01:07
 */
 /**
 recommend.thml对应的js文件
@@ -217,13 +217,15 @@ function createBox() {
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'15.jpg','content':'好吧暖光系画手根本不会冷下来.....'},
             { 'usernamer':'Food tester','usericons':'205.jpg','img':'18.jpg','content':'小迪门岛是丹麦法罗群岛18个岛屿中最小的一座，但是它经常有自己独特的云。'},
             { 'usernamer':'Food tester','usericons':'206.jpg','img':'7.jpg','content':'没错，我就是吃货,铲屎官，你的地盘被朕征用啦！/////////////////////////'}]};
+            
+            //使用createDocumentFragment提升加载效率
+            var oFragment = document.createDocumentFragment();
             //加载数据，先把盒子全建好顺序添加，添完全部的之后再计算布局
             for(var i=0; i<data.dataImg.length; i++)
             {
                 //创建最外面的盒子
                 var newBox = document.createElement('div');
                 newBox.className = 'box img-rounded';
-                $('main').appendChild(newBox);
 
                 //创建用户信息的盒子
                 var newUser = document.createElement('div');
@@ -265,9 +267,15 @@ function createBox() {
                 newTextDis.innerHTML = data.dataImg[i].content;
                 newArticleText.appendChild(newTextDis);
 
+                oFragment.appendChild(newBox);
+
                 //var boxHeights = newBox.offsetHeight;///////////////问题：一直是52,原因是图片加载较缓慢，
                                                         //若在firefox就可以实现。解决办法：调用布局函数前先加个延时1秒
             }
+
+            //DocumentFragment中的新元素加载完毕后一次性加入布局中，这样只形成了一次回流，提升加载效率
+            $('main').appendChild(oFragment);
+
             //把刚创建的盒子瀑布流布局
             //加延时的原因：为了解决获取动态加载图片的高度老是不成功的问题，浏览器原因，FireFox并没有问题
             setTimeout("waterFall('main','box')",1000);            

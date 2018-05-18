@@ -1,0 +1,8 @@
+1.ie的兼容//事件添加的差异?   addEventListener
+2.点击头像跳转到新的网页
+3.事件冒泡
+4.轮播图片
+5.点击空白处出现文字，卖萌，富强，民主，文明
+6.addEventListener 添加到global.js里，并理解还有事件移除的函数
+7.写代码时可参考《编程艺术》
+8.用cookie session
