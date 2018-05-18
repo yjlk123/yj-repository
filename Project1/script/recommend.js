@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-18 11:53:30
+* @Last Modified time: 2018-05-18 14:49:31
 */
 /**
 recommend.thml对应的js文件
@@ -279,7 +279,7 @@ function createBox() {
 
             //把刚创建的盒子瀑布流布局
             //加延时的原因：为了解决获取动态加载图片的高度老是不成功的问题，浏览器原因，FireFox并没有问题
-            setTimeout("waterFall('main','box')",1000);            
+            setTimeout("waterFall('main','box')",50);            
         }
     //}
 
