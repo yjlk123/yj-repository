@@ -55,6 +55,39 @@ body{border:1px dashed purple;} */
  
 }
 
+
+#parent{
+    width: 400px; 
+    height: 200px; 
+    border: 2px solid black;
+    position: relative;
+    top:20px;
+    margin:40px;
+    /*padding:40px;*/
+ 
+}
+
+#child{ 
+    float: left;
+    border: 2px solid red;
+    left : 50%;
+    clear: both;
+    position: relative;
+
+} 
+
+#content{
+    width: 200px; 
+    height: 100px;
+    border: 2px solid yellow;
+    /*position: relative;
+    left : -50%;
+    clear: both;*/
+
+
+}
+
+
 li + li + li {font-weight:bold;}
 
 
@@ -74,13 +107,21 @@ h1 > strong {color:red;}
 
 <body>
 
+   <div id="parent">out
+        <div id="child">
+            <div id = "content">
+                fighting!
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- <div id="first"> first</div> --> 
     <div id="third">out
         <div id="second">in</div>
 
     </div>
-
-    <div>
 
 
 
