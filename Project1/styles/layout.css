@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-13 20:36:39
+* @Last Modified time: 2018-05-28 13:44:43
 */
 
 /**
@@ -108,7 +108,7 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
     /*定位*/
     position: relative;
     /*border:5px solid #000;*/
-    margin-top: 120px;
+    margin-top: 40px;
     margin-right: auto;/*这两句实现居中*/
     margin-left: auto;
     /*float: left;
