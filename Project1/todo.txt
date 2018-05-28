@@ -7,3 +7,4 @@
 6.addEventListener 添加到global.js里，并理解还有事件移除的函数
 7.写代码时可参考《编程艺术》
 8.用cookie session
+9.将函数抽象出来，addEventListener , attachEvent

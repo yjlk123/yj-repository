@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-28 14:20:20
+* @Last Modified time: 2018-05-28 20:19:22
 */
 /**
 recommend.thml对应的js文件
@@ -288,11 +288,10 @@ function createBox() {
     //}
 
 
-    //测试ajax, 浏览器和服务器交互
-    var retage = document.getElementById("retag");
-    retage.onclick = function(){ 
-        //alert("test recommend.js");
-        ajax('/php/test.php', callBackFunctiona);};//若带参想传参，又不想立即调用，正确的调用函数方法如左边
+    //测试ajax, 浏览器和服务器交互.使用github pages访问时由于没有部署线上服务器，先注释掉，否则ajax函数会报错
+    //var retage = document.getElementById("retag");
+    //retage.onclick = function(){ 
+        //ajax('/php/test.php', callBackFunctiona);};//若带参想传参，又不想立即调用，正确的调用函数方法如左边
 }
 
 
