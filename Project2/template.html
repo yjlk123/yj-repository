@@ -88,6 +88,49 @@ body{border:1px dashed purple;} */
 }
 
 
+#parentt{
+    width: 400px; 
+/*    height: 200px; 
+*/    border: 2px solid black;
+    
+    margin:40px;
+    padding:20px;
+ 
+}
+
+#childt{ 
+    width: 100px; 
+    height: 50px; 
+    float: left;
+    border: 2px solid red;
+/*    clear: both;
+*/
+} 
+
+.floatbox{
+    width: 110px; 
+    height: 60px;
+/*    display: inline; 
+*/    
+    float: left;
+    border: 2px solid green;
+
+}
+
+.clearfix:after{
+  content: "020"; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;  /*测试时可以注释掉这行，可看出来详细是什么情况*/
+  
+  }
+
+.clearfix {
+  /* 触发 hasLayout */ 
+  zoom: 1; 
+  }
+
 li + li + li {font-weight:bold;}
 
 
@@ -98,14 +141,22 @@ p > i {
 
 h1 > strong {color:red;}
 
-
-
 </style> 
-
 </head>
-
-
 <body>
+
+   <div id="parentt" class = "clearfix">out
+    <span>hhh</span>
+        <div id="childt">
+        </div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+        <div class="floatbox"></div>
+
+    </div>
+
+
 
    <div id="parent">out
         <div id="child">
