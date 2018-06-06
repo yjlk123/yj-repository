@@ -1,8 +1,8 @@
 /*
 * @Author: yj
 * @Date:   2018-03-07 10:14:35
-* @Last Modified by:   yj
-* @Last Modified time: 2018-05-28 20:19:22
+* @Last Modified by:   yjlk123
+* @Last Modified time: 2018-06-06 22:35:44
 */
 /**
 recommend.thml对应的js文件
@@ -292,6 +292,8 @@ function createBox() {
     //var retage = document.getElementById("retag");
     //retage.onclick = function(){ 
         //ajax('/php/test.php', callBackFunctiona);};//若带参想传参，又不想立即调用，正确的调用函数方法如左边
+
+
 }
 
 

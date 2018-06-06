@@ -1,8 +1,8 @@
 /*
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
-* @Last Modified by:   yj
-* @Last Modified time: 2018-05-28 13:44:43
+* @Last Modified by:   yjlk123
+* @Last Modified time: 2018-06-06 22:34:21
 */
 
 /**
@@ -358,4 +358,43 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 	margin: 20px 0px 70px 0px;
 	height: auto;
 	width: 100%;
+}
+
+
+/*live.html*/
+#parent{
+	margin-top: 50px;
+	width: 100%;
+/*	border:5px solid #000;
+*/}
+
+#middle{
+	float: left;
+	position: relative;
+	left:50%;
+	clear: both;
+}
+
+#target{
+/*	border:5px solid #000;
+*/	left: -50%;
+	position: relative;
+}
+#targett{
+/*	border:5px solid #000;
+*/
+	margin-top: 30px;
+	left: -50%;
+	position: relative;
+}
+
+#articleedit{
+	width: 500px;
+	height: 250px;
+}
+
+#release{
+	float: right;
+	margin-top: 10px;
+
 }

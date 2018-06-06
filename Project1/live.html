@@ -3,11 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="styles/basic.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
-	<h1>Hello, this page is to be updated!</h1>
-	<script type="text/javascript" src="script/global.js">
+<!-- 	<h1>Hello, this page is to be updated!</h1>
+ -->	
+	<div id = "parent">
+		<div id = "middle">
+			<div id = "target">		
+				<button class="btn btn-success">写文章</button>
+			</div>
+		</div>
+		<div id = "middle">		
+			<div id = "targett">		
+				<textarea class="form-control" rows="5" id="articleedit" placeholder="写下你的文章…" ></textarea>
+				<button class="btn btn-success" id = "release">发布到首页</button>
+			</div>
+		</div>
+	</div>
+
+	 <script type="text/javascript" src="script/global.js">
+		//@ sourceURL=global.js 
+		/*只有加上这句才能在chrome的开发者工具中看到js文件*/
+	</script>
+	<script type="text/javascript" src="script/live.js">
 		//@ sourceURL=global.js 
 		/*只有加上这句才能在chrome的开发者工具中看到js文件*/
 	</script>
