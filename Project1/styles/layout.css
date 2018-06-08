@@ -1,8 +1,8 @@
 /*
 * @Author: yj
 * @Date:   2018-02-11 21:57:14
-* @Last Modified by:   yjlk123
-* @Last Modified time: 2018-06-06 22:34:21
+* @Last Modified by:   yj
+* @Last Modified time: 2018-06-08 11:57:46
 */
 
 /**
@@ -363,12 +363,19 @@ nav a.here:link,nav a.here:visited,nav a.here:hover,nav a.here:active{
 
 /*live.html*/
 #parent{
-	margin-top: 50px;
+	margin-top: 30px;
 	width: 100%;
 /*	border:5px solid #000;
 */}
 
 #middle{
+	float: left;
+	position: relative;
+	left:50%;
+	clear: both;
+}
+
+#middles{
 	float: left;
 	position: relative;
 	left:50%;

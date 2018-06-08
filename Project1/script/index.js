@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-25 18:23:20
 * @Last Modified by:   yj
-* @Last Modified time: 2018-05-18 17:27:30
+* @Last Modified time: 2018-06-08 11:49:45
 */
 
 /**
@@ -37,7 +37,16 @@ function createFirstpageArea(){
 							{'userImg':'103.jpg','userName':'analyser','textImg':'1s.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'},
 							{'userImg':'101.jpg','userName':'analyser','textImg':'7s.jpg','textContent':'比格line：“策划一个惊天！大型！恶作剧！'}
 							]};
-		//动态加载数据
+
+
+		//将sessionStorage里的内容插入数组中/////////////////////问题：宽度比其他的较小
+            var article = sessionStorage.getItem("articleRel");
+            //alert(article);
+            firstpageData.firstpageInfo.unshift({'userImg':'102.jpg','userName':'analyser','textImg':'default.jpg','textContent':article});//向数组添加数据可以直接这样加变量
+
+
+
+            //动态加载数据
 		for(var i = 0; i<firstpageData.firstpageInfo.length; i++){
 			//创建最外层盒子
 			var newArea = document.createElement('div');
@@ -82,6 +91,7 @@ function createFirstpageArea(){
 
 		}
 	//}
+
 }	
 
 //网页加载后调用函数

@@ -1,9 +1,13 @@
 /*
 * @Author: yj
 * @Date:   2018-06-06 20:18:26S
-* @Last Modified by:   yjlk123
-* @Last Modified time: 2018-06-06 23:00:15
+* @Last Modified by:   yj
+* @Last Modified time: 2018-06-08 12:00:48
 */
+
+//test url传参
+
+
 //var temp = window.location;
 //alert(temp);
 //var t = String(temp);//temp是个对象，必须转换成字符串才能使用split方法
@@ -19,15 +23,19 @@
 
 
 
+
+
 var retage = document.getElementById("articleedit");
 var tagBtn = document.getElementById("release");
 
 tagBtn.onclick = function(){ 
-    var st = retage.value;
-    //alert(st);
-    window.location.href='index.html?id='+st;
-    //alert(window.location);
-    var stt = String(window.location);
-    //alert(stt);
+    var articleStr = retage.value;
+    //方法1：点击发送到首页的按钮后将内容放在url后面传到首页:
+    //window.location.href='index.html?id='+st;
+    //var stt = String(window.location);
 
-    };//若带参想传参，又不想立即调用，正确的调用函数方法如左边
+	//方法2：用sessionStorage试试
+	sessionStorage.setItem("articleRel", articleStr);
+	retage.value = "";
+
+    }
