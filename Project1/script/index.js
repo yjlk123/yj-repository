@@ -2,7 +2,7 @@
 * @Author: yj
 * @Date:   2018-03-25 18:23:20
 * @Last Modified by:   yj
-* @Last Modified time: 2018-06-08 11:49:45
+* @Last Modified time: 2018-06-08 12:26:44
 */
 
 /**
@@ -41,8 +41,9 @@ function createFirstpageArea(){
 
 		//将sessionStorage里的内容插入数组中/////////////////////问题：宽度比其他的较小
             var article = sessionStorage.getItem("articleRel");
-            //alert(article);
+            if(article !== "" && article !== null){
             firstpageData.firstpageInfo.unshift({'userImg':'102.jpg','userName':'analyser','textImg':'default.jpg','textContent':article});//向数组添加数据可以直接这样加变量
+            }
 
 
 
